@@ -7,6 +7,12 @@ pipeline {
     }
 
     stages {
+        stage('Setup') {
+            steps {
+                sh 'ls -a'
+            }
+        }
+
         stage('Build') {
             steps {
                 timeout(time: 3, unit: 'MINUTES') {
