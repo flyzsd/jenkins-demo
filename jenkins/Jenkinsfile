@@ -15,6 +15,8 @@ pipeline {
 
         stage('Build') {
             steps {
+                echo 'Building'
+
                 timeout(time: 3, unit: 'MINUTES') {
                     retry(3) {
                         sh 'echo "Hello World"'
@@ -30,7 +32,14 @@ pipeline {
 
         stage('Test') {
             steps {
+                echo 'Testing'
                 sh 'printenv'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying'
             }
         }
     }
