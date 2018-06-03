@@ -10,8 +10,7 @@ pipeline {
         stage('Setup') {
             steps {
                 sh 'ls -all'
-                env.NODEJS_HOME = "${tool 'Node 10.x'}"
-                // on linux / mac
+                env.NODEJS_HOME = "${tool 'NodeJS 10.x'}"
                 env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
                 sh 'npm --version'
             }
