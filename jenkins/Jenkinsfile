@@ -8,10 +8,10 @@ pipeline {
 
     stages {
         stage('Setup') {
+            def node = tool name: 'NodeJS_10.x', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+            env.PATH = "${node}/bin:${env.PATH}"
             steps {
                 sh 'ls -all'
-                def node = tool name: 'NodeJS_10.x', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-                env.PATH = "${node}/bin:${env.PATH}"
                 sh 'npm --version'
             }
         }
