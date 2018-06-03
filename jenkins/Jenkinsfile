@@ -14,6 +14,8 @@ pipeline {
                     sh 'npm --version'
                     sh 'npm config ls'
                 }
+                sh 'npm --version'
+                sh 'npm config ls'
             }
         }
 
