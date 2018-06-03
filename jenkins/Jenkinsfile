@@ -38,9 +38,6 @@ pipeline {
     post {
         always {
             echo 'This will always run'
-            mail to: 'zhangshudong@gmail.com',
-                         subject: "Jenkins Pipeline: ${currentBuild.fullDisplayName}",
-                         body: "Jenkins Pipeline is completed with ${env.BUILD_URL}"
         }
 
         success {
