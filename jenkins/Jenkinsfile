@@ -6,17 +6,21 @@ pipeline {
     }
     */
 
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+    }
+    
+    triggers {
+        cron('@daily')
+    }
+    
     options {
         buildDiscarder(logRotator(numToKeepStr:'1'))
         disableConcurrentBuilds()
         skipDefaultCheckout(false)
         timeout(time: 5, unit: 'MINUTES')
         timestamps()
-    }
-    
-    environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
     }
 
     stages {
