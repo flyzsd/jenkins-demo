@@ -29,10 +29,10 @@ pipeline {
                 sh 'echo "Hello World"'
                 sh '''
                     echo "Multiline shell steps"
-                    ls –lah
+                    pwd
                 '''
                 sh 'ls -all'
-                nodejs(nodeJSInstallationName: 'NodeJS 10.x') {
+                nodejs(nodeJSInstallationName: 'NodeJS 8.9.4') {
                     sh 'npm --version'
                     sh 'npm config ls'
                 }
@@ -53,7 +53,7 @@ pipeline {
 
                 sh '''
                     echo "Multiline shell steps works too"
-                    ls -lah
+                    ls -all
                 '''
             }
         }
