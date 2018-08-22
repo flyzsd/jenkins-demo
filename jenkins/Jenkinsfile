@@ -11,6 +11,10 @@ pipeline {
         DB_ENGINE    = 'sqlite'
     }
     
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    }
+    
     triggers {
         cron('@daily')
     }
@@ -27,6 +31,7 @@ pipeline {
         stage('Setup') {
             steps {
                 sh 'echo "Hello World"'
+                echo "Hello ${params.PERSON}"
                 sh '''
                     echo "Multiline shell steps"
                     pwd
