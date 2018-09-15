@@ -17,13 +17,15 @@ pipeline {
     
     triggers {
         cron('@daily')
+        pollSCM('H/2 * * * *')
     }
     
     options {
-        buildDiscarder(logRotator(numToKeepStr:'1'))
+        buildDiscarder(logRotator(numToKeepStr:'10'))
         disableConcurrentBuilds()
         skipDefaultCheckout(false)
         timeout(time: 5, unit: 'MINUTES')
+        quietPeriod(600)
         timestamps()
     }
 
