@@ -25,7 +25,7 @@ pipeline {
         disableConcurrentBuilds()
         skipDefaultCheckout(false)
         timeout(time: 5, unit: 'MINUTES')
-        quietPeriod(600)
+        /*quietPeriod(600)*/
         timestamps()
     }
 
